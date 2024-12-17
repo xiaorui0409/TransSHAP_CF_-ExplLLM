@@ -28,8 +28,8 @@ The **FIZLE-guided method** involves two steps (Bhattacharjee et al., 2024):
 
 ### **Proposed Solution 1: Target Word-focused Perturbation in SHAP**  
 We propose performing perturbations **exclusively on target words** identified as important features using the **FIZLE-guided method**. This ensures that:  
-- SHAP values for important words reflect their **true contribution**.  
-- Computational efficiency improves by avoiding irrelevant perturbations.  
+- SHAP values for **important words** reflect their true contribution.  
+- **Computational efficiency** improves by avoiding irrelevant perturbations.  
 
 #### **Explanation**  
 The classical SHAP computation uses random sampling for perturbations, which can lead to two significant limitations:  
@@ -48,12 +48,6 @@ The classical SHAP computation uses random sampling for perturbations, which can
 We propose using the **intersection or union** of keywords extracted via **SHAP** and **FIZLE-guided methods** to generate counterfactuals. The combined keywords focus on critical words that influence predictions the most.
 
 If the generated counterfactuals using this approach result in **fewer edits** and **better semantic similarity** compared to those generated solely by the FIZLE method, it demonstrates that the extracted keywords have a significant impact on the model’s prediction.
-
-#### **Goals**  
-The goal is to generate **high-quality counterfactuals** that meet the following criteria:  
-- **Minimal Edits**: Small changes to the original text.  
-- **Label Flip**: The modified text successfully changes the prediction label.  
-- **Semantic Similarity**: The generated counterfactual remains close in meaning to the original sentence.  
 
 ---
 
