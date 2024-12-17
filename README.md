@@ -9,9 +9,8 @@ This approach was taken from the paper "BERT meets Shapley: Extending SHAP Expla
 
 **3.Counterfactual testing**
 **Counterfactual Testing for NLP Models**
-Traditional methods for generating counterfactuals, such as replacing words with synonyms or masking specific words, often have notable limitations. These methods produce counterfactuals that lack diversity and frequently disrupt the semantics of the original sentence, leading to unrealistic or irrelevant outputs
-To address these issues, the author leverage Large Language Models (LLMs) for counterfactual generation in a **zero-shot manner**. The **FIZLE-guided method**involves two steps by Bhattacharjee et al.,2024(https://arxiv.org/abs/2405.04793):
-1.	Using carefully **designed prompts** to instruct the LLM to **identify key keywords** that influence the model’s prediction.
+Traditional counterfactual generation methods, like synonym replacement or word masking, often produce limited, unrealistic outputs that disrupt the original sentence's semantics.To address these issues, the author leverage Large Language Models (LLMs) for counterfactual generation in a **zero-shot manner**. The **FIZLE-guided method**involves two steps by Bhattacharjee et al.,2024(https://arxiv.org/abs/2405.04793):
+1.	Using carefully designed promptsto instruct the LLM to **identify key keywords** that influence the model’s prediction.
 2.	**Minimally editing** these identified keywords to generate **new counterfactuals** that successfully flip the label while preserving the sentence's meaning.
 
 
