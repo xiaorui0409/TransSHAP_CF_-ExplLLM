@@ -1,7 +1,7 @@
 # **TransSHAP_CF - ExpLLM**
 
 ## **1. Background**  
-Large Language Models (LLMs) are undeniably a prominent area of interest and have been widely applied across various domains, including healthcare and finance. However, challenges like hallucinations and limited reasoning abilities persist. To tackle these challenges, we propose **integrating TransSHAP and Counterfactual Testing** to enhance the explainability of LLM decisions and identify the critical information driving their predictions.
+Large Language Models (LLMs) are undeniably a prominent area of interest and have been widely applied across various domains, including healthcare and finance etc. We propose **integrating TransSHAP and Counterfactual Testing** to enhance the explainability of LLM decisions and identify the critical information driving their predictions.
 
 ---
 
@@ -20,7 +20,7 @@ The **FIZLE-guided method** involves two steps (Bhattacharjee et al., 2024):
 1. **Using carefully designed prompts** to instruct the LLM to **identify key keywords** that influence the model’s prediction.  
 2. **Minimally editing** these identified keywords to generate **new counterfactuals** that successfully flip the label while preserving the sentence's meaning.  
 
-[Read the full paper here](https://arxiv.org/abs/2405.04793).
+[Zero-shot LLM-guided Counterfactual Generation: A Case Study on NLP Model Evaluation](https://arxiv.org/abs/2405.04793).
 
 ---
 
@@ -40,7 +40,7 @@ The classical SHAP computation uses random sampling for perturbations, which can
 
 2. **Contribution Shrinkage**  
    - **Issue**: Even when important words are included in randomly selected subsets, the presence of irrelevant or unimportant words reduces their contribution.  
-   - **Example**: If the subset `{"is", "my"}` is perturbed along with `"dog"`, the overall contribution might appear small because `"is"` and `"my"` contribute nothing. This **masks the true impact** of `"dog"` and `"friend"`.  
+   - **Example**: If the subset `{"is", "my"}` is perturbed along with `"dog"`, the overall contribution might appear small because `"is"` and `"my"` make lesser contribution. This **masks the true impact** of `"dog"` and `"friend"`.  
 
 ---
 
@@ -59,12 +59,6 @@ The goal is to generate **high-quality counterfactuals** that meet the following
 
 ## **5. Conclusion**  
 Both approaches aim to enhance the interpretability and evaluation of model predictions by:  
-1. Improving the **accuracy and stability** of SHAP explanations.  
+1. Improving the **accuracy and stability** of TransSHAP explanations.  
 2. Generating more **effective and high-quality counterfactual examples**.
 
-**Semantic Similarity**: The generated counterfactual remains close in meaning to the original sentence.
-
-
-Both approaches aim to enhance the interpretability and evaluation of model predictions by:
-Improving the accuracy and stability of SHAP explanations.
-Generating more effective and high-quality counterfactual examples.
