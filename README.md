@@ -15,8 +15,12 @@ Traditional counterfactual generation methods, like synonym replacement or word 
 
 
 **4.Integrating TransSHAP and Counterfactual Testing to improve the explainability of LLMs**
+**Proposed Solution_1: Target Word-focused Perturbation in SHAP**:
+I propose performing perturbations **exclusively on target words** identified as important features using the **FIZLE-guided method**. This ensures that:
+SHAP values for important words reflect their true contribution.
+Computational efficiency improves by avoiding irrelevant perturbations.
 
-**Hypothesis 1: Target Word-focused Perturbation in SHAP**
+**explanation:**
 The classical SHAP computation uses **random sampling for perturbations**, which can lead to **two significant limitations:**
 **limitation1: Ignoring Important Words**: Random sampling might exclude key words that contribute the most to a model’s prediction.
 
@@ -25,23 +29,17 @@ Example: In the sentence “I like dog, he is my best friend”, random sampling
 **limitation2:Contribution Shrinkage**: Even when important words are included in randomly selected subsets, the presence of irrelevant or unimportant words reduces their contribution. This shrinks the SHAP value of the key words and increases computational demand unnecessarily.
 Example: If the subset {"is", "my"} is perturbed along with "dog", the overall contribution might appear small because "is" and "my" contribute nothing. This masks the true impact of "dog" and "friend".
 
-**Proposed Solution**:
-To address these limitations, I propose performing perturbations **exclusively on target words** identified as important features using the **FIZLE-guided method**. This ensures that:
+**Proposed Solution_2 : Intersection/Union of Keywords for Counterfactual Generation**
 
-SHAP values for important words reflect their true contribution.
-Computational efficiency improves by avoiding irrelevant perturbations.
+I propose using the **intersection or union** of keywords extracted via SHAP and FIZLE-guided methods to generate counterfactuals. The combined keywords focus on critical words that influence predictions the most.
 
+If the generated counterfactuals using this approach result in **fewer edits** and better **semantic similarity** compared to those generated solely by the FIZLE method, it demonstrates that the extracted keywords have significant impact on the model’s prediction.
 
-**Hypothesis 2: Intersection/Union of Keywords for Counterfactual Generation**
 The goal is to generate high-quality counterfactuals that meet the following criteria:
 **Minimal Edits**: Small changes to the original text.
 **Label Flip**: The modified text successfully changes the prediction label.
 **Semantic Similarity**: The generated counterfactual remains close in meaning to the original sentence.
 
-**Proposed Solution**:
-I propose using the **intersection or union** of keywords extracted via SHAP and FIZLE-guided methods to generate counterfactuals. The combined keywords focus on critical words that influence predictions the most.
-
-If the generated counterfactuals using this approach result in **fewer edits** and better **semantic similarity** compared to those generated solely by the FIZLE method, it demonstrates that the extracted keywords have significant impact on the model’s prediction.
 
 Both approaches aim to enhance the interpretability and evaluation of model predictions by:
 Improving the accuracy and stability of SHAP explanations.
