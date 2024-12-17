@@ -32,7 +32,7 @@ We propose performing perturbations **exclusively on target words** identified a
 - **Computational efficiency** improves by avoiding irrelevant perturbations.  
 
 #### **Explanation**  
-The classical SHAP computation uses random sampling for perturbations, which can lead to two significant limitations:  
+The classical SHAP computation uses **random samplin**g for perturbations, which can lead to two significant limitations:  
 
 1. **Ignoring Important Words**  
    - **Issue**: Random sampling might exclude key words that contribute the most to a model’s prediction.  
